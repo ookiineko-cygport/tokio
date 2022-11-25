@@ -236,10 +236,10 @@ impl TcpSocket {
     ///     Ok(())
     /// }
     /// ```
-    #[cfg(all(unix, not(target_os = "solaris"), not(target_os = "illumos")))]
+    #[cfg(all(unix, not(target_os = "solaris"), not(target_os = "illumos"), not(target_os = "cygwin")))]
     #[cfg_attr(
         docsrs,
-        doc(cfg(all(unix, not(target_os = "solaris"), not(target_os = "illumos"))))
+        doc(cfg(all(unix, not(target_os = "solaris"), not(target_os = "illumos"), not(target_os = "cygwin"))))
     )]
     pub fn set_reuseport(&self, reuseport: bool) -> io::Result<()> {
         self.inner.set_reuseport(reuseport)
@@ -271,10 +271,10 @@ impl TcpSocket {
     ///     Ok(())
     /// }
     /// ```
-    #[cfg(all(unix, not(target_os = "solaris"), not(target_os = "illumos")))]
+    #[cfg(all(unix, not(target_os = "solaris"), not(target_os = "illumos"), not(target_os = "cygwin")))]
     #[cfg_attr(
         docsrs,
-        doc(cfg(all(unix, not(target_os = "solaris"), not(target_os = "illumos"))))
+        doc(cfg(all(unix, not(target_os = "solaris"), not(target_os = "illumos"), not(target_os = "cygwin"))))
     )]
     pub fn reuseport(&self) -> io::Result<bool> {
         self.inner.get_reuseport()
